@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #224;
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            font-family: sans-serif;
+            place-items: center;
+        }
+        .container{
+            width: 300px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid;
+            background: rgb(86, 252, 86);
+            border-radius: 10px;
+        }
+        input{
+            height: 30px;
+            width: 80%;
+            border-radius: 5px;
+            border: none;
+            margin-top: 10px;
+            padding: 0px 10px;
+            outline: none;
+        }
+        button{
+            height: 30px;
+            width: 50%;
+            border-radius: 5px;
+            border: none;
+            cursor:pointer;
+            margin-top: 10px;
+        }
+        #qrimg{
+            height: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Enter your text or url</p>
+        <input type="text" placeholder="Text or URL" id="inputfil">
+        <div class="imgbox">
+            <img src="" id="qrimg">
+        </div>
+        <button onclick="qrgenerator()">Generate</button>
+    </div>
+    <script>
+        const inputfil=document.getElementById("inputfil");
+        const imgbox=document.getElementById("imgbox");
+        const qrimg=document.getElementById("qrimg");
+        function qrgenerator(){
+            qrimg.src ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+inputfil.value;
+        }
+    </script>
+</body>
+</html>
